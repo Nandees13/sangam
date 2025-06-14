@@ -36,8 +36,8 @@ export default function AboutSection({ content, isPreview = false }: AboutSectio
       {isPreview && (
         <div className="relative rounded-lg overflow-hidden shadow-md h-[400px]">
           <Image
-            src='/public/hero/hero1-img.jpeg'
-            alt="About Arivial Sangam"
+            src='/hero/child.jpg'
+            alt="Arivial Sangam"
             fill
             className="object-cover"
           />

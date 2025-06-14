@@ -35,7 +35,7 @@ export default async function TeamPage() {
           type="team"
         />
 
-        <div className="mt-20">
+        {/* <div className="mt-20">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Team Members</h2>
             <div className="w-20 h-1 bg-primary mb-6"></div>
@@ -44,7 +44,6 @@ export default async function TeamPage() {
             </p>
           </div>
 
-          {/* Other Members */}
           <TeamScroller
             members={teamMembers.filter(
               (member) =>
@@ -54,7 +53,7 @@ export default async function TeamPage() {
             )}
             type="team"
           />
-        </div>
+        </div> */}
       </section>
 
       {/* Join the Team CTA Section */}

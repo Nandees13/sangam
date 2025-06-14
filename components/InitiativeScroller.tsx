@@ -42,7 +42,15 @@ export default function InitiativeScroller({ items }: InitiativeScrollerProps) {
       description: 'Organized cleanup drives across departments.',
       image_url: 'https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg',
       date: new Date().toISOString()
+    },
+    {
+      id: '3',
+      title: 'Mandala',
+      description: 'Mandala is an initiative of Vijnana Bharati that intends to bridge contemporary science and Indic thought, in a rigorous and self-consistent manner, at the ontological as well as the epistemological and normative levels.',
+      image_url: 'https://www.shutterstock.com/image-photo/portrait-happy-cute-little-indian-260nw-2376610285.jpg',
+      date: new Date().toISOString()
     }
+
   ]
 
   const display = Array.isArray(items) && items.length > 0 ? items : fallbackInitiatives

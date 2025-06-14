@@ -192,7 +192,7 @@ export const deleteInitiative = async (id: string) => {
 // Events
 export const createEvent = async (title: string, description: string, date: string, location: string, imageFile: File) => {
   const filePath = `${Date.now()}_${imageFile.name}`;
-  const imageUrl = await uploadImage('events', filePath, imageFile);
+  const imageUrl = await uploadImage('event-images', filePath, imageFile);
   
   const { data, error } = await supabase
     .from('events')
@@ -208,7 +208,7 @@ export const updateEvent = async (id: string, title: string, description: string
   
   if (imageFile) {
     const filePath = `${Date.now()}_${imageFile.name}`;
-    imageUrl = await uploadImage('events', filePath, imageFile);
+    imageUrl = await uploadImage('event-images', filePath, imageFile);
   }
   
   const { data, error } = await supabase
@@ -240,7 +240,7 @@ export const deleteEvent = async (id: string) => {
 // Achievements
 export const createAchievement = async (title: string, description: string, date: string, imageFile: File) => {
   const filePath = `${Date.now()}_${imageFile.name}`;
-  const imageUrl = await uploadImage('achievements', filePath, imageFile);
+  const imageUrl = await uploadImage('achievement-images', filePath, imageFile);
   
   const { data, error } = await supabase
     .from('achievements')
@@ -256,7 +256,7 @@ export const updateAchievement = async (id: string, title: string, description: 
   
   if (imageFile) {
     const filePath = `${Date.now()}_${imageFile.name}`;
-    imageUrl = await uploadImage('achievements', filePath, imageFile);
+    imageUrl = await uploadImage('achievement-images', filePath, imageFile);
   }
   
   const { data, error } = await supabase
@@ -287,7 +287,7 @@ export const deleteAchievement = async (id: string) => {
 // News
 export const createNews = async (title: string, content: string, slug: string, imageFile: File) => {
   const filePath = `${Date.now()}_${imageFile.name}`;
-  const imageUrl = await uploadImage('news', filePath, imageFile);
+  const imageUrl = await uploadImage('new-images', filePath, imageFile);
   
   const { data, error } = await supabase
     .from('news')
@@ -309,7 +309,7 @@ export const updateNews = async (id: string, title: string, content: string, slu
   
   if (imageFile) {
     const filePath = `${Date.now()}_${imageFile.name}`;
-    imageUrl = await uploadImage('news', filePath, imageFile);
+    imageUrl = await uploadImage('new-images', filePath, imageFile);
   }
   
   const { data, error } = await supabase

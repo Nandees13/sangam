@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Event {
+  image_url: string;
   id: string;
   date: string;
   title: string;
@@ -60,14 +61,32 @@ export default function EventsSection({ upcomingEvents }: EventsSectionProps) {
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
-                  <CardContent className="relative p-6 text-white">
-                    <p className="text-sm font-semibold mb-2">{event.date}</p>
-                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                    <p className="text-sm mb-4">{event.description}</p>
-                    <Button variant="outline" size="sm" asChild className="text-white border-white hover:bg-white/20">
-                      <Link href="/events">Learn More</Link>
-                    </Button>
-                  </CardContent>
+                  <CardContent className="relative p-8 text-black flex flex-col md:flex-row items-center md:items-start gap-">
+  {/* Text Section */}
+  <div className="flex-1">
+    <p className="text-sm font-semibold mb-2">{event.date}</p>
+    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+    <p className="text-sm mb-4">{event.description}</p>
+    <Button
+      variant="outline"
+      size="sm"
+      asChild
+      className="text-black border-white hover:bg-white/20"
+    >
+      <Link href="/events">Learn More</Link>
+    </Button>
+  </div>
+
+  {/* Image Section */}
+  <div className="w-full md:w-1/3">
+    <img
+      src={event.image_url || "/placeholder.jpg"}
+      alt={event.title}
+      className="rounded-lg object-cover w-full h-48 md:h-full"
+    />
+  </div>
+</CardContent>
+
                 </Card>
               </div>
             ))}

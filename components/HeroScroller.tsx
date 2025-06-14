@@ -113,7 +113,7 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
             <Link href="/about">Learn More</Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="text-black border-white hover:bg-white/20 hover:text-white text-base">
-            <Link href="/contact">Get Involved</Link>
+            <Link href="https://vijnanabharati.org/member/register/">Get Involved</Link>
           </Button>
         </div>
       </div>

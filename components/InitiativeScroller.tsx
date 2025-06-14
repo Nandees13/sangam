@@ -31,9 +31,9 @@ export default function InitiativeScroller({ items }: InitiativeScrollerProps) {
   const fallbackInitiatives: Initiative[] = [
     {
       id: '1',
-      title: 'Tech Literacy Drive',
-      description: 'Aimed to educate rural youth in digital tools.',
-      image_url: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg',
+      title: 'Shakti',
+      description: 'A national Movement for Women, initiated by Vijnana Bharati and established in Kochi (Kerala) in 2003. It has been formed with a great desire and determination of uniting the women force of India for a creative movement. Shakti tries to uphold the sanctity of Indian womanhood on the basis of Indian culture.',
+      image_url: 'https://vijnanabharati.org/assets/Images/inner-page-logo/shakti.jpg',
       date: new Date().toISOString()
     },
     {
@@ -47,7 +47,7 @@ export default function InitiativeScroller({ items }: InitiativeScrollerProps) {
       id: '3',
       title: 'Mandala',
       description: 'Mandala is an initiative of Vijnana Bharati that intends to bridge contemporary science and Indic thought, in a rigorous and self-consistent manner, at the ontological as well as the epistemological and normative levels.',
-      image_url: 'https://www.shutterstock.com/image-photo/portrait-happy-cute-little-indian-260nw-2376610285.jpg',
+      image_url: 'https://vijnanabharati.org/assets/Images/inner-page-logo/mandala-vb.jpg',
       date: new Date().toISOString()
     }
 

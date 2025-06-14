@@ -271,7 +271,7 @@ export default function AchievementsForm() {
       
       {/* Add/Edit Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent>
+        <DialogContent  className="max-h-[80vh] overflow-y-auto ">
           <DialogHeader>
             <DialogTitle>
               {editingAchievement ? 'Edit Achievement' : 'Add New Achievement'}

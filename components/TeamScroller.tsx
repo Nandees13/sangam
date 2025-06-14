@@ -43,7 +43,7 @@ export default function TeamCards({ members, type }: TeamCardsProps) {
       id: '2',
       name: 'Jane Smith',
       role: 'Designer',
-      image_url: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg',
+      image_url: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
       bio: 'Creative lead in visual design and branding.'
     }
   ]

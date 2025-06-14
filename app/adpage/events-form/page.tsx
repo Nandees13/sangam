@@ -282,7 +282,7 @@ export default function EventsForm() {
       
       {/* Add/Edit Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent>
+        <DialogContent  className="max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>
               {editingEvent ? 'Edit Event' : 'Add New Event'}

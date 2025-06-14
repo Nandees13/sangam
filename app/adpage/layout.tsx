@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <AdminAuthCheck>
-      <div className="min-h-screen flex flex-col md:flex-row bg-muted/30">
+      <div className="min-h-screen flex flex-col md:flex-row bg-muted/30 py-12">
         <AdminSidebar />
         <div className="flex-1 p-4 md:p-8">
           {children}

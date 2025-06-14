@@ -70,3 +70,5 @@ export function getContentImage(content: string, fallbackUrl: string): string {
   const match = content.match(imgRegex);
   return match ? match[1] : fallbackUrl;
 }
+
+export { isPast };

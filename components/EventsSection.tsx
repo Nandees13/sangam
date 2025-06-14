@@ -6,13 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Define Event interface (shared with supabase-server.ts)
 interface Event {
   id: string;
   date: string;
   title: string;
   description: string;
-  // Add other fields as needed
 }
 
 interface EventsSectionProps {

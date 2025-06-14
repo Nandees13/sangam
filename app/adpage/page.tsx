@@ -25,11 +25,7 @@ export default async function AdminDashboard() {
       </div>
       
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-<<<<<<< HEAD
-        <Card>
-=======
         {/* <Card>
->>>>>>> 6ae2606 (new addition)
           <CardHeader className="pb-2">
             <CardTitle>Hero Images</CardTitle>
             <CardDescription>Manage homepage hero carousel</CardDescription>
@@ -43,11 +39,7 @@ export default async function AdminDashboard() {
               <Link href="/adpage/hero-form">Manage Hero Images</Link>
             </Button>
           </CardFooter>
-<<<<<<< HEAD
-        </Card>
-=======
         </Card> */}
->>>>>>> 6ae2606 (new addition)
         
         <Card>
           <CardHeader className="pb-2">
@@ -129,11 +121,7 @@ export default async function AdminDashboard() {
           </CardFooter>
         </Card>
         
-<<<<<<< HEAD
-        <Card>
-=======
         {/* <Card>
->>>>>>> 6ae2606 (new addition)
           <CardHeader className="pb-2">
             <CardTitle>About Content</CardTitle>
             <CardDescription>Manage about page content</CardDescription>
@@ -147,11 +135,7 @@ export default async function AdminDashboard() {
               <Link href="/adpage/about-form">Edit About Content</Link>
             </Button>
           </CardFooter>
-<<<<<<< HEAD
-        </Card>
-=======
         </Card> */}
->>>>>>> 6ae2606 (new addition)
       </div>
     </div>
   );

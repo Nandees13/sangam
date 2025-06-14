@@ -2,24 +2,47 @@ import { Metadata } from 'next';
 import { getAchievements } from '@/lib/supabase-server';
 import AchievementCards from '@/components/AchievementCards';
 
+
+type Achievement = {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  image_url: string; // Required by AchievementCards
+};
+
+type NewsArticle = {
+  id: string;
+  title: string;
+  content: string;
+  image: string;
+  date: string;
+  slug: string;
+  image_url: string;
+  published_at: string;
+};
+
 export const metadata: Metadata = {
   title: 'Achievements - Arivial Sangam',
   description: 'Discover the accomplishments and milestones of Arivial Sangam.',
 };
 
+export const revalidate = 600; // Revalidate every 10 minutes
+
 export default async function AchievementsPage() {
   const achievements = await getAchievements();
-  
+
+  // Map data to match Achievement type
+  const mappedAchievements: Achievement[] = achievements.map((item) => ({
+    id: item.id,
+    title: item.title || '',
+    description: item.description || '',
+    date: item.date || '',
+    image_url: item.image_url || '', // Handle missing image_url
+  }));
+
   return (
     <div className="min-h-screen">
-      {/* Page Header */}
-      {/* <div className="bg-muted py-12 md:py-20">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Achievements</h1>
-          <p className="text-xl text-muted-foreground">Celebrating our milestones and accomplishments</p>
-        </div>
-      </div> */}
-      
       {/* Achievements Content */}
       <section className="container py-16 md:py-24">
         <div className="flex flex-col items-center text-center mb-12">
@@ -31,7 +54,7 @@ export default async function AchievementsPage() {
           </p>
         </div>
         
-        <AchievementCards achievements={achievements} />
+        <AchievementCards achievements={mappedAchievements} />
       </section>
       
       {/* Impact Numbers */}

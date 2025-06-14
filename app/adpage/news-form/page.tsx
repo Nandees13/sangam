@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -7,14 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle, 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
   DialogFooter,
-  DialogClose
+  DialogClose,
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 import { createNews, updateNews, deleteNews } from '@/lib/supabase-client';
@@ -46,40 +46,41 @@ export default function NewsForm() {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    
+
     // Preview the image
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreviewUrl(reader.result as string);
     };
     reader.readAsDataURL(file);
-    
+
     setImage(file);
   };
 
   // Submit form
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!image && !editingArticle) {
       toast.error('Please select an image');
       return;
     }
-    
+
     const slug = generateSlug(title);
-    
+
     try {
       setIsSubmitting(true);
-      
+
       if (editingArticle) {
-        await updateNews(editingArticle.id, title, content, slug, image);
+        // Fix: Convert null to undefined
+        await updateNews(editingArticle.id, title, content, slug, image ?? undefined);
         toast.success('News article updated successfully');
       } else {
-        if (!image) return;
+        if (!image) return; // TypeScript knows image is File here due to earlier check
         await createNews(title, content, slug, image);
         toast.success('News article created successfully');
       }
-      
+
       setIsDialogOpen(false);
       resetForm();
       router.refresh();
@@ -126,14 +127,16 @@ export default function NewsForm() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Manage News</h1>
-        <Button onClick={() => {
-          resetForm();
-          setIsDialogOpen(true);
-        }}>
+        <Button
+          onClick={() => {
+            resetForm();
+            setIsDialogOpen(true);
+          }}
+        >
           Add New Article
         </Button>
       </div>
-      
+
       <Card>
         <CardContent className="p-6">
           {news.length > 0 ? (
@@ -161,9 +164,9 @@ export default function NewsForm() {
                     <Button variant="outline" size="sm" onClick={() => handleEdit(article)}>
                       Edit
                     </Button>
-                    <Button 
-                      variant="destructive" 
-                      size="sm" 
+                    <Button
+                      variant="destructive"
+                      size="sm"
                       onClick={() => setConfirmDeleteId(article.id)}
                     >
                       Delete
@@ -179,21 +182,19 @@ export default function NewsForm() {
           )}
         </CardContent>
       </Card>
-      
+
       {/* Add/Edit Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>
-              {editingArticle ? 'Edit News Article' : 'Add New News Article'}
-            </DialogTitle>
+            <DialogTitle>{editingArticle ? 'Edit News Article' : 'Add New News Article'}</DialogTitle>
             <DialogDescription>
-              {editingArticle 
-                ? 'Update the article details below.' 
+              {editingArticle
+                ? 'Update the article details below.'
                 : 'Fill in the details below to add a new article.'}
             </DialogDescription>
           </DialogHeader>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="title">Title</Label>
@@ -205,7 +206,7 @@ export default function NewsForm() {
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="content">Content</Label>
               <Textarea
@@ -217,7 +218,7 @@ export default function NewsForm() {
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="image">Image</Label>
               <Input
@@ -238,17 +239,35 @@ export default function NewsForm() {
                 </div>
               )}
             </div>
-            
+
             <DialogFooter>
               <DialogClose asChild>
-                <Button type="button" variant="outline">Cancel</Button>
+                <Button type="button" variant="outline">
+                  Cancel
+                </Button>
               </DialogClose>
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-2 h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Saving...
                   </>
@@ -258,7 +277,7 @@ export default function NewsForm() {
           </form>
         </DialogContent>
       </Dialog>
-      
+
       {/* Confirm Delete Dialog */}
       <Dialog open={!!confirmDeleteId} onOpenChange={() => setConfirmDeleteId(null)}>
         <DialogContent>
@@ -272,8 +291,8 @@ export default function NewsForm() {
             <Button variant="outline" onClick={() => setConfirmDeleteId(null)}>
               Cancel
             </Button>
-            <Button 
-              variant="destructive" 
+            <Button
+              variant="destructive"
               onClick={() => confirmDeleteId && handleDelete(confirmDeleteId)}
             >
               Delete

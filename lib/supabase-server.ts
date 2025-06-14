@@ -15,6 +15,7 @@ interface AboutContent {
 }
 
 interface Initiative {
+  deadline: any;
   id: string;
   title: string;
   description: string;
@@ -23,6 +24,8 @@ interface Initiative {
 }
 
 interface Event {
+  image_url: string;
+  location: string;
   id: string;
   date: string;
   title: string;
@@ -31,6 +34,7 @@ interface Event {
 }
 
 interface Achievement {
+  image_url: string;
   id: string;
   title: string;
   description: string;
@@ -39,6 +43,7 @@ interface Achievement {
 }
 
 interface News {
+  image_url: any;
   id: string;
   slug: string;
   title: string;
@@ -389,3 +394,10 @@ export async function getNewsCount(): Promise<number> {
     return 0;
   }
 }
+
+export async function getAllEvents() {
+  const { data, error } = await supabase.from('events').select('id');
+  if (error || !data) return [];
+  return data;
+}
+

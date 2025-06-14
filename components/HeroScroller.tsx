@@ -112,7 +112,7 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
           <Button asChild size="lg" className="text-base">
             <Link href="/about">Learn More</Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/20 hover:text-white text-base">
+          <Button asChild size="lg" variant="outline" className="text-black border-white hover:bg-white/20 hover:text-white text-base">
             <Link href="/contact">Get Involved</Link>
           </Button>
         </div>

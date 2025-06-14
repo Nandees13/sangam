@@ -1,26 +1,19 @@
-import { Metadata } from 'next';
-import { getTeamMembers } from '@/lib/supabase-server';
-import TeamInitiativeScroller from '@/components/TeamInitiativeScroller';
+// app/team/page.tsx
+import { Metadata } from 'next'
+import { getTeamMembers } from '@/lib/supabase-server'
+import TeamScroller from '@/components/TeamScroller'
 
 export const metadata: Metadata = {
   title: 'Our Team - Arivial Sangam',
   description: 'Meet the dedicated team behind Arivial Sangam.',
-};
+}
 
 export default async function TeamPage() {
-  const teamMembers = await getTeamMembers();
-  
+  const teamMembers = await getTeamMembers()
+
   return (
     <div className="min-h-screen">
-      {/* Page Header */}
-      {/* <div className="bg-muted py-12 md:py-20">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Team</h1>
-          <p className="text-xl text-muted-foreground">Meet the dedicated individuals behind Arivial Sangam</p>
-        </div>
-      </div>
-       */}
-      {/* Team Members */}
+      {/* Team Members Section */}
       <section className="container py-16 md:py-24">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Leadership Team</h2>
@@ -30,9 +23,18 @@ export default async function TeamPage() {
             towards achieving its mission and vision.
           </p>
         </div>
-        
-        <TeamInitiativeScroller items={teamMembers.filter(member => member.role.includes('Director') || member.role.includes('President') || member.role.includes('Chair'))} type="team" />
-        
+
+        {/* Leadership Members */}
+        <TeamScroller
+          members={teamMembers.filter(
+            (member) =>
+              member.role.includes('Director') ||
+              member.role.includes('President') ||
+              member.role.includes('Chair')
+          )}
+          type="team"
+        />
+
         <div className="mt-20">
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Team Members</h2>
@@ -41,12 +43,21 @@ export default async function TeamPage() {
               Our dedicated team members work tirelessly to implement our initiatives and serve our community.
             </p>
           </div>
-          
-          <TeamInitiativeScroller items={teamMembers.filter(member => !member.role.includes('Director') && !member.role.includes('President') && !member.role.includes('Chair'))} type="team" />
+
+          {/* Other Members */}
+          <TeamScroller
+            members={teamMembers.filter(
+              (member) =>
+                !member.role.includes('Director') &&
+                !member.role.includes('President') &&
+                !member.role.includes('Chair')
+            )}
+            type="team"
+          />
         </div>
       </section>
-      
-      {/* Join the Team */}
+
+      {/* Join the Team CTA Section */}
       <section className="bg-muted py-16">
         <div className="container">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
@@ -75,5 +86,5 @@ export default async function TeamPage() {
         </div>
       </section>
     </div>
-  );
+  )
 }

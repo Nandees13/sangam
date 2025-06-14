@@ -6,11 +6,7 @@ export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
   
   // Check if the request is for the admin area (except login page)
-<<<<<<< HEAD
-  if (pathname.startsWith('/adpage') && !pathname.includes('/login')) {
-=======
   if (pathname.startsWith('/project/adpage') && !pathname.includes('/login')) {
->>>>>>> 6ae2606 (new addition)
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

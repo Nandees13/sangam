@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -7,14 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle, 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
   DialogFooter,
-  DialogClose
+  DialogClose,
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 import { createTeamMember, updateTeamMember, deleteTeamMember } from '@/lib/supabase-client';
@@ -45,38 +45,39 @@ export default function TeamsForm() {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    
+
     // Preview the image
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreviewUrl(reader.result as string);
     };
     reader.readAsDataURL(file);
-    
+
     setImage(file);
   };
 
   // Submit form
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!image && !editingMember) {
       toast.error('Please select an image');
       return;
     }
-    
+
     try {
       setIsSubmitting(true);
-      
+
       if (editingMember) {
-        await updateTeamMember(editingMember.id, name, role, description, image);
+        // Fix: Convert null to undefined
+        await updateTeamMember(editingMember.id, name, role, description, image ?? undefined);
         toast.success('Team member updated successfully');
       } else {
-        if (!image) return;
+        if (!image) return; // TypeScript knows image is File here due to earlier check
         await createTeamMember(name, role, description, image);
         toast.success('Team member added successfully');
       }
-      
+
       setIsDialogOpen(false);
       resetForm();
       router.refresh();
@@ -125,14 +126,16 @@ export default function TeamsForm() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Manage Team</h1>
-        <Button onClick={() => {
-          resetForm();
-          setIsDialogOpen(true);
-        }}>
+        <Button
+          onClick={() => {
+            resetForm();
+            setIsDialogOpen(true);
+          }}
+        >
           Add Team Member
         </Button>
       </div>
-      
+
       <Card>
         <CardContent className="p-6">
           {teamMembers.length > 0 ? (
@@ -150,17 +153,15 @@ export default function TeamsForm() {
                   <div className="flex-grow">
                     <h3 className="font-bold mb-1">{member.name}</h3>
                     <p className="text-sm text-primary mb-2">{member.role}</p>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {member.description}
-                    </p>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{member.description}</p>
                   </div>
                   <div className="flex gap-2">
                     <Button variant="outline" size="sm" onClick={() => handleEdit(member)}>
                       Edit
                     </Button>
-                    <Button 
-                      variant="destructive" 
-                      size="sm" 
+                    <Button
+                      variant="destructive"
+                      size="sm"
                       onClick={() => setConfirmDeleteId(member.id)}
                     >
                       Delete
@@ -176,21 +177,19 @@ export default function TeamsForm() {
           )}
         </CardContent>
       </Card>
-      
+
       {/* Add/Edit Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>
-              {editingMember ? 'Edit Team Member' : 'Add Team Member'}
-            </DialogTitle>
+            <DialogTitle>{editingMember ? 'Edit Team Member' : 'Add Team Member'}</DialogTitle>
             <DialogDescription>
-              {editingMember 
-                ? 'Update the team member details below.' 
+              {editingMember
+                ? 'Update the team member details below.'
                 : 'Fill in the details below to add a new team member.'}
             </DialogDescription>
           </DialogHeader>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
@@ -202,7 +201,7 @@ export default function TeamsForm() {
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="role">Role</Label>
               <Input
@@ -213,7 +212,7 @@ export default function TeamsForm() {
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="description">Description</Label>
               <Textarea
@@ -224,7 +223,7 @@ export default function TeamsForm() {
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="image">Profile Image</Label>
               <Input
@@ -245,17 +244,35 @@ export default function TeamsForm() {
                 </div>
               )}
             </div>
-            
+
             <DialogFooter>
               <DialogClose asChild>
-                <Button type="button" variant="outline">Cancel</Button>
+                <Button type="button" variant="outline">
+                  Cancel
+                </Button>
               </DialogClose>
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4\" xmlns="http://www.w3.org/2000/svg\" fill="none\" viewBox="0 0 24 24">
-                      <circle className="opacity-25\" cx="12\" cy="12\" r="10\" stroke="currentColor\" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-2 h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Saving...
                   </>
@@ -265,7 +282,7 @@ export default function TeamsForm() {
           </form>
         </DialogContent>
       </Dialog>
-      
+
       {/* Confirm Delete Dialog */}
       <Dialog open={!!confirmDeleteId} onOpenChange={() => setConfirmDeleteId(null)}>
         <DialogContent>
@@ -279,8 +296,8 @@ export default function TeamsForm() {
             <Button variant="outline" onClick={() => setConfirmDeleteId(null)}>
               Cancel
             </Button>
-            <Button 
-              variant="destructive" 
+            <Button
+              variant="destructive"
               onClick={() => confirmDeleteId && handleDelete(confirmDeleteId)}
             >
               Delete

@@ -77,8 +77,8 @@ export default async function Home() {
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Community</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">Be part of our mission to empower and strengthen our community through knowledge and action.</p>
-          <Button asChild size="lg" variant="outline" className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary">
-            <Link href="/contact">Get Involved</Link>
+          <Button asChild size="lg" variant="outline" className="text-primary-foreground text-black border-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Link href="https://vijnanabharati.org/member/register/">Get Involved</Link>
           </Button>
         </div>
       </section>

@@ -38,9 +38,9 @@ export default function InitiativeScroller({ items }: InitiativeScrollerProps) {
     },
     {
       id: '2',
-      title: 'Clean Campus Initiative',
-      description: 'Organized cleanup drives across departments.',
-      image_url: 'https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg',
+      title: 'NEED Mission',
+      description: 'NEED is a nationwide movement to build an energy-conscious and environmentally responsible society, starting from our schools and colleges — but extending far beyond. By combining education, action, and community engagement, NEED empowers students, professionals, institutions, and citizens to become stewards of a sustainable future.',
+      image_url: 'https://blog.ipleaders.in/wp-content/uploads/2020/06/web_enviromental_world_istock-507688668_0.png',
       date: new Date().toISOString()
     },
     {

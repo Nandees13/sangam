@@ -13,12 +13,12 @@ export default async function AchievementsPage() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <div className="bg-muted py-12 md:py-20">
+      {/* <div className="bg-muted py-12 md:py-20">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Achievements</h1>
           <p className="text-xl text-muted-foreground">Celebrating our milestones and accomplishments</p>
         </div>
-      </div>
+      </div> */}
       
       {/* Achievements Content */}
       <section className="container py-16 md:py-24">

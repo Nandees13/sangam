@@ -16,12 +16,12 @@ export default async function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <div className="bg-muted py-12 md:py-20">
+      {/* <div className="bg-muted py-1 md:py-20">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-xl text-muted-foreground">Our mission, vision, and the journey we've taken</p>
         </div>
-      </div>
+      </div> */}
       
       {/* Main Content */}
       <section className="container py-16 md:py-24">

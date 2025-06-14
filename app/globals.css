@@ -135,15 +135,4 @@
       user-scalable: no;
     }
   }
-<<<<<<< HEAD
-=======
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
->>>>>>> 6ae2606 (new addition)
 }

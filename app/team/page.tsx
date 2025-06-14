@@ -13,13 +13,13 @@ export default async function TeamPage() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <div className="bg-muted py-12 md:py-20">
+      {/* <div className="bg-muted py-12 md:py-20">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Team</h1>
           <p className="text-xl text-muted-foreground">Meet the dedicated individuals behind Arivial Sangam</p>
         </div>
       </div>
-      
+       */}
       {/* Team Members */}
       <section className="container py-16 md:py-24">
         <div className="flex flex-col items-center text-center mb-12">

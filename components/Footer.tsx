@@ -103,11 +103,7 @@ export default function Footer() {
           </div>
         </div>
         
-<<<<<<< HEAD
         <div className="border-t mt-12 pt-8">
-=======
-        <div className="border-t mt-1 pt-4">
->>>>>>> 6ae2606 (new addition)
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground mb-4 md:mb-0">
               © {currentYear} Arivial Sangam. All rights reserved.

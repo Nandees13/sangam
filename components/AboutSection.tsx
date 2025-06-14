@@ -29,7 +29,7 @@ export default function AboutSection({ content, isPreview = false }: AboutSectio
   return (
     <div className={cn("grid grid-cols-1", isPreview ? "lg:grid-cols-2 gap-12 items-center" : "gap-8")}>
       {/* Image */}
-      <div className={cn(
+      {/* <div className={cn(
         "relative rounded-lg overflow-hidden shadow-md",
         isPreview ? "h-[400px]" : "h-[300px] lg:h-[500px]"
       )}>
@@ -39,7 +39,7 @@ export default function AboutSection({ content, isPreview = false }: AboutSectio
           fill
           className="object-cover"
         />
-      </div>
+      </div> */}
       
       {/* Content */}
       <div className={cn("flex flex-col", isPreview ? "" : "mt-8")}>

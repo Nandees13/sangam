@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 type HeroImage = {
   id: string;
-  image_url: string;
+  image_path: string; // Changed from image_url to image_path
   caption: string;
 };
 
@@ -22,10 +22,10 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const pathname = usePathname();
 
-  // Fallback image if none are available
+  // Fallback image with local path
   const fallbackImage = {
     id: 'fallback',
-    image_url: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg',
+    image_path: '/images/hero/default-hero.jpg', // Local path in public/images/hero/
     caption: 'Empowering communities through knowledge and action',
   };
 
@@ -76,6 +76,8 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
     return null;
   }
 
+  
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Hero Images */}
@@ -88,7 +90,7 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
           )}
         >
           <Image
-            src={image.image_url}
+            src={image.image_path} // Changed from image_url to image_path
             alt={image.caption}
             fill
             priority={index === 0}
@@ -151,7 +153,7 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
       </div>
       
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 animate-bounce">
+      {/* <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 animate-bounce">
         <a 
           href="#about" 
           className="text-white flex flex-col items-center"
@@ -160,7 +162,7 @@ export default function HeroScroller({ images }: HeroScrollerProps) {
           <span className="text-sm font-medium mb-2">Scroll Down</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }

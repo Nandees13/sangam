@@ -199,14 +199,6 @@ export default function TeamInitiativeScroller({ items, type }: TeamInitiativeSc
             )}
           >
             <div className="relative h-60">
-<<<<<<< HEAD
-              <Image 
-                src={'image_url' in item ? item.image_url : (type === 'team' ? 'https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg' : 'https://images.pexels.com/photos/4144179/pexels-photo-4144179.jpeg')} 
-                alt={type === 'team' ? ('name' in item ? item.name : '') : ('title' in item ? item.title : '')}
-                fill
-                className="object-cover"
-              />
-=======
               <Image
   src={
     item.image_url && item.image_url !== ''
@@ -218,7 +210,6 @@ export default function TeamInitiativeScroller({ items, type }: TeamInitiativeSc
   alt={type === 'team' ? (item.name || '') : (item.title || '')}
   fill
 />
->>>>>>> 6ae2606 (new addition)
               
               {type === 'initiative' && 'deadline' in item && (
                 <div className={cn(

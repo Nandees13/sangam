@@ -118,7 +118,7 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                     aria-expanded={isExpanded}
                     className="text-muted-foreground"
                   >
-                    {isExpanded ? 'Show Less' : 'Read More'}
+                    {/* {isExpanded ? 'Show Less' : 'Read More'} */}
                   </Button>
                   
                   <Button asChild size="sm">
@@ -127,11 +127,11 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                     </Link>
                   </Button>
                   
-                  {upcoming && (
+                  {/* {upcoming && (
                     <Button size="sm" variant="outline">
                       Register
                     </Button>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>

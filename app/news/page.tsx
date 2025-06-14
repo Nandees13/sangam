@@ -13,12 +13,12 @@ export default async function NewsPage() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <div className="bg-muted py-12 md:py-20">
+      {/* <div className="bg-muted py-12 md:py-20">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">News & Updates</h1>
           <p className="text-xl text-muted-foreground">Stay informed about our latest activities and announcements</p>
         </div>
-      </div>
+      </div> */}
       
       {/* News Content */}
       <section className="container py-16 md:py-24">

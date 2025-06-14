@@ -22,10 +22,6 @@
       "@/*": ["./*"]
     }
   },
-<<<<<<< HEAD
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-=======
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/adpage/hero-form"],
->>>>>>> 6ae2606 (new addition)
   "exclude": ["node_modules"]
 }

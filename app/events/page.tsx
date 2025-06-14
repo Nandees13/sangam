@@ -18,21 +18,13 @@ export default async function EventsPage() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-<<<<<<< HEAD
-      <div className="bg-muted py-12 md:py-20">
-=======
       {/* <div className="bg-muted py-12 md:py-20">
->>>>>>> 6ae2606 (new addition)
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
           <p className="text-xl text-muted-foreground">Join us at our upcoming events or revisit our past gatherings</p>
         </div>
       </div>
-<<<<<<< HEAD
-      
-=======
        */}
->>>>>>> 6ae2606 (new addition)
       {/* Events Content */}
       <section className="container py-16 md:py-24">
         <Tabs defaultValue="upcoming" className="w-full">
@@ -82,11 +74,7 @@ export default async function EventsPage() {
       </section>
       
       {/* Host an Event */}
-<<<<<<< HEAD
-      <section className="bg-primary text-primary-foreground py-16">
-=======
       {/* <section className="bg-primary text-primary-foreground py-16">
->>>>>>> 6ae2606 (new addition)
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Want to Host an Event?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
@@ -100,11 +88,7 @@ export default async function EventsPage() {
             Contact Us
           </a>
         </div>
-<<<<<<< HEAD
-      </section>
-=======
       </section> */}
->>>>>>> 6ae2606 (new addition)
     </div>
   );
 }

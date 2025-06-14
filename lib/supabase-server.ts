@@ -53,9 +53,8 @@ interface News {
 }
 
 // Initialize Supabase client (server-side)
-const supabaseUrl = "https://ctesypfznoubeqbzrtyl.supabase.co";
-const supabaseServiceKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0ZXN5cGZ6bm91YmVxYnpydHlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg4NzMyODIsImV4cCI6MjA2NDQ0OTI4Mn0.VGfnhMijpXfzYpFm_Ft9C3inObIsEA0BucQZE4NS6bg";
-
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey =  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 if (!supabaseUrl || !supabaseServiceKey) {
   throw new Error('Missing Supabase environment variables: NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required.');
 }

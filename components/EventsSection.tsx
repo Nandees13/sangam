@@ -60,7 +60,7 @@ export default function EventsSection({ upcomingEvents }: EventsSectionProps) {
                     backgroundImage: `url('https://images.unsplash.com/photo-1507206130118-b5909f1b5c2c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3')`,
                   }}
                 >
-                  <div className="absolute inset-0 bg-black/75" />
+                  <div className="absolute inset-0 bg-black/70" />
                   <CardContent className="relative p-8 text-black flex flex-col md:flex-row items-center md:items-start gap-">
   {/* Text Section */}
   <div className="flex-1">

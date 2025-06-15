@@ -31,16 +31,16 @@ export default function InitiativeScroller({ items }: InitiativeScrollerProps) {
   const fallbackInitiatives: Initiative[] = [
     {
       id: '1',
-      title: 'Shakti',
-      description: 'A national Movement for Women, initiated by Vijnana Bharati and established in Kochi (Kerala) in 2003. It has been formed with a great desire and determination of uniting the women force of India for a creative movement. Shakti tries to uphold the sanctity of Indian womanhood on the basis of Indian culture.',
-      image_url: 'https://vijnanabharati.org/assets/Images/inner-page-logo/shakti.jpg',
+      title: 'Vidyarthi Vigyan Manthan',
+      description: 'An initiative of Vijnana Bharati (VIBHA), in collaboration with National Council of Educational Research and Training (NCERT), an institution under the Ministry of Education, Government of India and National Council of Science Museums (NCSM), an autonomous organisation under the Ministry of Culture, Government of India. VVM is a national program for popularizing science among school students of standard VI to XI, conceptualized with the intent of identifying “ignited minds”, to use the words of Dr. APJ Kalam, with a scientific aptitude from amongst the student community.',
+      image_url: 'https://pbs.twimg.com/media/EiSa2vCU4AE6FOi.jpg',
       date: new Date().toISOString()
     },
     {
       id: '2',
       title: 'NEED Mission',
       description: 'NEED is a nationwide movement to build an energy-conscious and environmentally responsible society, starting from our schools and colleges — but extending far beyond. By combining education, action, and community engagement, NEED empowers students, professionals, institutions, and citizens to become stewards of a sustainable future.',
-      image_url: 'https://blog.ipleaders.in/wp-content/uploads/2020/06/web_enviromental_world_istock-507688668_0.png',
+      image_url: '/hero/need.jpg',
       date: new Date().toISOString()
     },
     {
